@@ -13,7 +13,7 @@ let package = Package(
 			name: "Silica",
 			dependencies: [
 				"Cairo"
-			]ß
+			]
 		)
     ]
 )
