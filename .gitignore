@@ -2,3 +2,4 @@ Carthage
 .build
 Packages
 Silica.xcodeproj
+.swiftpm

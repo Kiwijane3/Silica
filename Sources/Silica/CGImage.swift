@@ -35,4 +35,7 @@ public final class CGImage {
         
         self.surface = surface
     }
+	
+	
+	
 }
