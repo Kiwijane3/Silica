@@ -49,7 +49,7 @@ public enum PathElement {
 
 public extension CGPath {
     
-    mutating func addRect(_ rect: CGRect) {
+	mutating func addRect(_ rect: Silica.CGRect) {
         
         let newElements: [Element] = [.moveToPoint(CGPoint(x: rect.minX, y: rect.minY)),
                                       .addLineToPoint(CGPoint(x: rect.maxX, y: rect.minY)),
@@ -60,7 +60,7 @@ public extension CGPath {
         elements.append(contentsOf: newElements)
     }
     
-    mutating func addEllipse(in rect: CGRect) {
+	mutating func addEllipse(in rect: Silica.CGRect) {
         
         var p = CGPoint()
         var p1 = CGPoint()

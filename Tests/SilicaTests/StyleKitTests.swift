@@ -17,7 +17,7 @@ final class StyleKitTests: XCTestCase {
                            ("testAdvancedShapes", testAdvancedShapes),
                            ("testImagePNG", testImagePNG)]
     
-    private func draw(_ drawingMethod: () -> (), _ name: String, _ size: CGSize) {
+	private func draw(_ drawingMethod: () -> (), _ name: String, _ size: Silica.CGSize) {
         
         let filename = TestPath.testData + name + ".pdf"
         

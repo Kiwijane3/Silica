@@ -10,13 +10,6 @@ import Cairo
 import CCairo
 import Foundation
 
-#if os(macOS)
-
-import struct CoreGraphics.CGAffineTransform
-public typealias CGAffineTransform = CoreGraphics.CGAffineTransform
-
-#else
-
 /// Affine Transform
 public struct CGAffineTransform {
     
@@ -38,8 +31,6 @@ public struct CGAffineTransform {
     
     public static let identity = CGAffineTransform(a: 1, b: 0, c: 0, d: 1, tx: 0, ty: 0)
 }
-
-#endif
     
 // MARK: - Geometry Math
 

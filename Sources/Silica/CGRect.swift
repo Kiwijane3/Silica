@@ -1,20 +1,53 @@
 //
-//  Rect.swift
+//  CGRect.swift
 //  Silica
 //
 //  Created by Alsey Coleman Miller on 5/10/16.
 //  Copyright © 2016 PureSwift. All rights reserved.
 //
-
-#if os(macOS)
-    import Darwin.C.math
-#elseif os(Linux)
-    import Glibc
-#endif
-
 import Foundation
 
-#if os(Linux)
+public struct CGRect: Equatable {
+	
+	public static var infinite = CGRect(origin: .zero, size: .infinite);
+	
+	public static var zero = CGRect(origin: .zero, size: .zero);
+	
+	public static var null = CGRect(x: -0, y: -0, width: -0, height: -0);
+	
+	public var origin: CGPoint;
+	
+	public var size: CGSize;
+	
+	public init(origin: CGPoint, size: CGSize) {
+		self.origin = origin;
+		self.size = size;
+	}
+	
+	public init(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) {
+		self.origin = CGPoint(x: x, y: y);
+		self.size = CGSize(width: width, height: height);
+	}
+	
+	public init(x: Int, y: Int, width: Int, height: Int) {
+		self.origin = CGPoint(x: x, y: y);
+		self.size = CGSize(width: width, height: height);
+	}
+	
+	public init() {
+		self.origin = CGPoint();
+		self.size = CGSize();
+	}
+	
+	public static func ==(_ a: CGRect, _ b: CGRect) -> Bool {
+		return a.origin == b.origin && a.size == b.size;
+	}
+	 
+	public func equalTo(_ other: CGRect) -> Bool {
+		return self == other;
+	}
+	
+}
 
 public extension CGRect {
     
@@ -213,5 +246,3 @@ public extension CGRect {
     }
 
 }
-
-#endif

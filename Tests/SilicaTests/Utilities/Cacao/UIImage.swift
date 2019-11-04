@@ -18,7 +18,7 @@ public final class UIImage {
         self.cgImage = cgImage
     }
     
-    public var size: CGSize {
+    public var size: Silica.CGSize {
         
         return CGSize(width: CGFloat(cgImage.width), height: CGFloat(cgImage.height))
     }

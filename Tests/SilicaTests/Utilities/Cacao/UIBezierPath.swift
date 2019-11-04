@@ -34,19 +34,19 @@ public final class UIBezierPath {
     
     public var cgPath: Silica.CGPath
     
-    public var lineWidth: CGFloat = 1.0
+    public var lineWidth: Silica.CGFloat = 1.0
     
     public var lineCapStyle: Silica.CGLineCap = .butt
     
     public var lineJoinStyle: Silica.CGLineJoin = .miter
     
-    public var miterLimit: CGFloat = 10
+    public var miterLimit: Silica.CGFloat = 10
     
-    public var flatness: CGFloat = 0.6
+    public var flatness: Silica.CGFloat = 0.6
     
     public var usesEvenOddFillRule: Bool = false
     
-    public var lineDash: (phase: CGFloat, lengths: [CGFloat]) = (0.0, [])
+    public var lineDash: (phase: Silica.CGFloat, lengths: [Silica.CGFloat]) = (0.0, [])
     
     // MARK: - Initialization
     
@@ -55,7 +55,7 @@ public final class UIBezierPath {
         self.cgPath = path
     }
     
-    public init(rect: CGRect) {
+    public init(rect: Silica.CGRect) {
         
         var path = CGPath()
         
@@ -64,7 +64,7 @@ public final class UIBezierPath {
         self.cgPath = path
     }
     
-    public init(ovalIn rect: CGRect) {
+    public init(ovalIn rect: Silica.CGRect) {
         
         var path = CGPath()
         
@@ -73,24 +73,24 @@ public final class UIBezierPath {
         self.cgPath = path
     }
     
-    public convenience init(roundedRect rect: CGRect, cornerRadius: CGFloat) {
+    public convenience init(roundedRect rect: Silica.CGRect, cornerRadius: Silica.CGFloat) {
         
         self.init(roundedRect: rect, byRoundingCorners: .allCorners, cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
     }
     
-    public init(roundedRect rect: CGRect, byRoundingCorners corners: UIRectCorner, cornerRadii: CGSize) {
+    public init(roundedRect rect: Silica.CGRect, byRoundingCorners corners: UIRectCorner, cornerRadii: Silica.CGSize) {
         
         var path = CGPath()
         
-        func addCurve(_ control1: CGPoint, _ control2: CGPoint, _ end: CGPoint) {
+        func addCurve(_ control1: Silica.CGPoint, _ control2: Silica.CGPoint, _ end: Silica.CGPoint) {
             
             path.addCurve(to: end, control1: control1, control2: control2)
         }
         
         let topLeft = rect.origin
-        let topRight = CGPoint(x: rect.maxX, y: rect.minY)
-        let bottomRight = CGPoint(x: rect.maxX, y: rect.maxY)
-        let bottomLeft = CGPoint(x: rect.minX, y: rect.maxY)
+        let topRight = Silica.CGPoint(x: rect.maxX, y: rect.minY)
+        let bottomRight = Silica.CGPoint(x: rect.maxX, y: rect.maxY)
+        let bottomLeft = Silica.CGPoint(x: rect.minX, y: rect.maxY)
         
         if corners.contains(.topLeft) {
             path.move(to: CGPoint(x: topLeft.x+cornerRadii.width, y:topLeft.y))
@@ -137,7 +137,7 @@ public final class UIBezierPath {
         
     // MARK: - Accessors
     
-    public var currentPoint: CGPoint {
+    public var currentPoint: Silica.CGPoint {
         
         fatalError("Not implemented")
     }
@@ -147,7 +147,7 @@ public final class UIBezierPath {
         return cgPath.elements.isEmpty
     }
     
-    public var bounds: CGRect {
+    public var bounds: Silica.CGRect {
         
         fatalError("Not implemented")
     }
@@ -195,22 +195,22 @@ public final class UIBezierPath {
     
     // MARK: - Constructing a Path
     
-    public func move(to point: CGPoint) {
+    public func move(to point: Silica.CGPoint) {
         
         cgPath.elements.append(.moveToPoint(point))
     }
     
-    public func addLine(to point: CGPoint) {
+    public func addLine(to point: Silica.CGPoint) {
         
         cgPath.elements.append(.addLineToPoint(point))
     }
     
-    public func addCurve(to endPoint: CGPoint, controlPoint1: CGPoint, controlPoint2: CGPoint) {
+    public func addCurve(to endPoint: Silica.CGPoint, controlPoint1: Silica.CGPoint, controlPoint2: Silica.CGPoint) {
         
         cgPath.elements.append(.addCurveToPoint(controlPoint1, controlPoint2, endPoint))
     }
     
-    public func addQuadCurve(to endPoint: CGPoint, controlPoint: CGPoint) {
+    public func addQuadCurve(to endPoint: Silica.CGPoint, controlPoint: Silica.CGPoint) {
         
         cgPath.elements.append(.addQuadCurveToPoint(controlPoint, endPoint))
     }
@@ -220,7 +220,7 @@ public final class UIBezierPath {
         cgPath.elements.append(.closeSubpath)
     }
     
-    public func addArc(with center: CGPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat, clockwise: Bool) {
+    public func addArc(with center: Silica.CGPoint, radius: Silica.CGFloat, startAngle: Silica.CGFloat, endAngle: Silica.CGFloat, clockwise: Bool) {
         
         fatalError("Not implemented")
     }

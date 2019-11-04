@@ -24,7 +24,7 @@ public final class CGContext {
     
     public let size: CGSize
     
-    public var textMatrix = CGAffineTransform.identity
+	public var textMatrix = Silica.CGAffineTransform.identity
     
     // MARK: - Private Properties
     
@@ -432,12 +432,12 @@ public final class CGContext {
         let currentPoint = self.currentPoint ?? CGPoint()
         
         // arguments
-        let x0 = currentPoint.x.native
-        let y0 = currentPoint.y.native
-        let x1 = points.0.x.native
-        let y1 = points.0.y.native
-        let x2 = points.1.x.native
-        let y2 = points.1.y.native
+        let x0 = currentPoint.x
+        let y0 = currentPoint.y
+        let x1 = points.0.x
+        let y1 = points.0.y
+        let x2 = points.1.x
+        let y2 = points.1.y
         
         // calculated
         let dx0 = x0 - x1
@@ -457,10 +457,10 @@ public final class CGContext {
             return
         }
         
-        let n0x: CGFloat.NativeType
-        let n0y: CGFloat.NativeType
-        let n2x: CGFloat.NativeType
-        let n2y: CGFloat.NativeType
+        let n0x: Double
+        let n0y: Double
+        let n2x: Double
+        let n2y: Double
         
         if san < 0 {
             n0x = -dy0 / xl0
@@ -477,8 +477,8 @@ public final class CGContext {
         
         let t = (dx2*n2y - dx2*n0y - dy2*n2x + dy2*n0x) / san
         
-        let center = CGPoint(x: CGFloat(x1 + radius.native * (t * dx0 + n0x)),
-                             y: CGFloat(y1 + radius.native * (t * dy0 + n0y)))
+        let center = CGPoint(x: CGFloat(x1 + radius * (t * dx0 + n0x)),
+                             y: CGFloat(y1 + radius * (t * dy0 + n0y)))
         let angle = (start: atan2(-n0y, -n0x), end: atan2(-n2y, -n2x))
         
         self.addArc(center: center,

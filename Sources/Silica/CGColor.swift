@@ -6,7 +6,6 @@
 //  Copyright © 2016 PureSwift. All rights reserved.
 //
 
-import struct Foundation.CGFloat
 import Cairo
 
 public struct CGColor: Equatable {

@@ -23,10 +23,10 @@ public final class UIColor {
     }
     
     /// An initialized color object. The color information represented by this object is in the device RGB colorspace.
-    public init(red: CGFloat,
-                green: CGFloat,
-                blue: CGFloat,
-                alpha: CGFloat = 1.0) {
+    public init(red: Silica.CGFloat,
+                green: Silica.CGFloat,
+                blue: Silica.CGFloat,
+                alpha: Silica.CGFloat = 1.0) {
         
         self.cgColor = Silica.CGColor(red: red, green: green, blue: blue, alpha: alpha)
     }
@@ -35,10 +35,10 @@ public final class UIColor {
     
     // MARK: Retrieving Color Information
     
-    public func getRed(_ red: inout CGFloat,
-                       green: inout CGFloat,
-                       blue: inout CGFloat,
-                       alpha: inout CGFloat) -> Bool {
+    public func getRed(_ red: inout Silica.CGFloat,
+                       green: inout Silica.CGFloat,
+                       blue: inout Silica.CGFloat,
+                       alpha: inout Silica.CGFloat) -> Bool {
         
         red = cgColor.red
         green = cgColor.green
