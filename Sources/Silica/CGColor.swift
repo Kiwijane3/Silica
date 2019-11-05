@@ -8,6 +8,7 @@
 
 import Cairo
 
+
 public struct CGColor: Equatable {
     
     // MARK: - Properties
